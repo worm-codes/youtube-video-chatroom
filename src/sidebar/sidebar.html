@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>YouTube Video Chatroom</title>
+    <link rel="stylesheet" href="sidebar.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="app-root" class="app">
+      <div class="app__header">
+        <div>
+          <h1 class="app__title">Video Chatroom</h1>
+          <p class="app__subtitle" id="video-label">Video yükleniyor…</p>
+        </div>
+        <button id="toggle-collapse" class="btn btn--ghost" title="Paneli daralt" hidden>
+          <span>&rsaquo;</span>
+        </button>
+      </div>
+
+      <section class="app__status" id="status-banner" hidden></section>
+
+      <section class="app__auth" id="auth-section">
+        <p>Katılmak için Google hesabınızla giriş yapın.</p>
+        <button id="google-signin" class="btn btn--primary">Google ile giriş yap</button>
+      </section>
+
+      <section class="app__membership" id="membership-section" hidden>
+        <div class="profile" id="profile-info">
+          <img id="profile-avatar" class="profile__avatar" alt="Avatar" />
+          <div class="profile__details">
+            <strong id="profile-name">Kullanıcı</strong>
+            <small id="profile-username"></small>
+          </div>
+        </div>
+        <div class="membership__actions">
+          <button id="join-room" class="btn btn--primary">Sohbete katıl</button>
+          <button id="leave-room" class="btn btn--ghost" hidden>Odadan çık</button>
+        </div>
+      </section>
+
+      <section class="app__messages" id="messages-section" hidden>
+        <div id="messages-list" class="messages"></div>
+      </section>
+
+      <form id="message-form" class="message-form" hidden>
+        <textarea
+          id="message-input"
+          class="message-form__input"
+          rows="3"
+          maxlength="500"
+          placeholder="Mesajınızı yazın…"
+        ></textarea>
+        <div class="message-form__actions">
+          <button id="send-button" class="btn btn--primary" type="submit">Gönder</button>
+          <button id="signout-button" class="btn btn--ghost" type="button">Çıkış</button>
+        </div>
+      </form>
+    </div>
+
+    <template id="message-template">
+      <article class="message">
+        <div class="message__avatar"></div>
+        <div class="message__content">
+          <header class="message__meta">
+            <strong class="message__author"></strong>
+            <span class="message__time"></span>
+          </header>
+          <p class="message__text"></p>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="sidebar.js"></script>
+  </body>
+</html>
+
