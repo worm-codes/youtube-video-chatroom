@@ -1,0 +1,20 @@
+{
+  "name": "youtube-video-chatroom",
+  "version": "0.1.0",
+  "description": "Chrome extension for per-video real-time chat rooms on YouTube using Supabase.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --watch",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dompurify": "^3.0.9"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.4",
+    "rimraf": "^5.0.7"
+  }
+}
+

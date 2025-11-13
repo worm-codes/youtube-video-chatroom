@@ -1,0 +1,67 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Video Chatroom",
+  "description": "Gerçek zamanlı YouTube video sohbet odaları. Supabase destekli, Google ile giriş yapın ve aynı videoyu izleyenlerle sohbet edin.",
+  "version": "0.1.0",
+  "permissions": [
+    "scripting",
+    "storage",
+    "identity",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sidebar/sidebar.html",
+        "sidebar/sidebar.js",
+        "sidebar/sidebar.css",
+        "popup/popup.html",
+        "popup/popup.js",
+        "popup/popup.css",
+        "auth/auth.html",
+        "chunks/*"
+      ],
+      "matches": [
+        "https://www.youtube.com/*"
+      ]
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidebar/sidebar.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
+
