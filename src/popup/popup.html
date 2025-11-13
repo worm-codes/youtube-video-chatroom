@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Video Chatroom</title>
+    <link rel="stylesheet" href="popup.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <main class="popup">
+      <header class="popup__header">
+        <div>
+          <h1 class="popup__title">YouTube Chatroom</h1>
+          <p class="popup__subtitle">Aktif video için sohbet paneli</p>
+        </div>
+        <button id="open-tab" class="btn btn--ghost" type="button">
+          YouTube'ı aç
+        </button>
+      </header>
+
+      <section id="popup-status" class="popup__status">Video aranıyor…</section>
+
+      <section class="popup__content" id="popup-content" hidden>
+        <iframe id="chat-frame" title="Chatroom" src="../sidebar/sidebar.html"></iframe>
+      </section>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
+
